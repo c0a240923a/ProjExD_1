@@ -13,15 +13,14 @@ def main():
     cha_img = pg.image.load("fig/3.png")
     cha_img = pg.transform.flip(cha_img, True, False)
     tmr = 0
-    wid = 0
+
+    bg_img = pg.transform.flip(bg_img, True, False)
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
-        if tmr >= 800:
-            screen.blit(bg_img, [0, 0])
-
         screen.blit(bg_img, [-tmr, 0])
+        screen.blit(bg_img, [-tmr+1600, 0])
         screen.blit(cha_img, [300, 200])
         pg.display.update()
         tmr += 1      

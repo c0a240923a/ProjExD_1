@@ -13,14 +13,16 @@ def main():
     cha_img = pg.image.load("fig/3.png")
     cha_img = pg.transform.flip(cha_img, True, False)
     tmr = 0
+    wid = 0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
-        screen.blit(bg_img, [0, 0])
+        screen.blit(bg_img, [wid, 0])
         screen.blit(cha_img, [300, 200])
         pg.display.update()
-        tmr += 1        
+        tmr += 1      
+        wid -= 10  
         clock.tick(10)
 
 

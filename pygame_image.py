@@ -24,13 +24,15 @@ def main():
 
         x = tmr % 3200
 
+        cha_rct.move_ip(-1, 0)
+
         key_lst = pg.key.get_pressed()
         if key_lst[pg.K_UP]:
             cha_rct.move_ip(0, -1)
         if key_lst[pg.K_LEFT]:
             cha_rct.move_ip(-1, 0)
         if key_lst[pg.K_RIGHT]:
-            cha_rct.move_ip(+1, 0)
+            cha_rct.move_ip(+2, 0)
         if key_lst[pg.K_DOWN]:
             cha_rct.move_ip(0, +1)
 

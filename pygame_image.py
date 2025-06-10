@@ -41,7 +41,7 @@ def main():
         screen.blit(cha_img, cha_rct)
         pg.display.update()
         tmr += 1      
-        clock.tick(400)
+        clock.tick(200)
 
         
 

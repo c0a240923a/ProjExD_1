@@ -15,6 +15,8 @@ def main():
     cha_img = pg.transform.flip(cha_img, True, False)
     tmr = 0
     x = 0
+    cha_rct = cha_img.get_rect()
+    cha_rct.center = (300, 200)
 
     while True:
         for event in pg.event.get():
@@ -22,14 +24,26 @@ def main():
 
         x = tmr % 3200
 
+        key_lst = pg.key.get_pressed()
+        if key_lst[pg.K_UP]:
+            cha_rct.move_ip(0, -1)
+        if key_lst[pg.K_LEFT]:
+            cha_rct.move_ip(-1, 0)
+        if key_lst[pg.K_RIGHT]:
+            cha_rct.move_ip(+1, 0)
+        if key_lst[pg.K_DOWN]:
+            cha_rct.move_ip(0, +1)
+
+
         screen.blit(bg_img, [-x, 0])
         screen.blit(bg_img2, [-x+1600, 0])
         screen.blit(bg_img, [-x+3200, 0])
-        screen.blit(cha_img, [300, 200])
+        screen.blit(cha_img, cha_rct)
         pg.display.update()
         tmr += 1      
         clock.tick(400)
 
+        
 
 if __name__ == "__main__":
     pg.init()
